@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apply for Insurance | MediCare</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ecfeff, #f0fdfa, #ffffff);
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #0f766e;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ccfbf1;
+        }
+
+        /* MAIN */
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 50px auto;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heading h1 {
+            color: #115e59;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(15,118,110,0.15);
+        }
+
+        /* PLAN CARD */
+        .plan-section {
+            background: linear-gradient(160deg, #0f766e, #115e59);
+            color: white;
+            padding: 40px;
+        }
+
+        .plan-section h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .plan-type {
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+
+        .plan-info {
+            margin-bottom: 22px;
+        }
+
+        .plan-info span {
+            display: block;
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .plan-info strong {
+            font-size: 21px;
+        }
+
+        .description {
+            margin-top: 25px;
+            line-height: 1.7;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* FORM */
+        .form-section {
+            padding: 40px;
+        }
+
+        .form-section h2 {
+            color: #115e59;
+            margin-bottom: 25px;
+            font-size: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+            background: #f8fafc;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #0f766e;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .error {
+            color: #dc2626;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #0f766e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
+
+        .submit-btn:hover {
+            background: #115e59;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(15,118,110,0.25);
+        }
+
+        .secure {
+            text-align: center;
+            margin-top: 15px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            🏥 MediCare Insurance
+        </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/plans/">Plans</a>
+        <a href="/about/">About Us</a>
+        <a href="/contact/">Contact Us</a>
+        <a href="/profile/">Profile</a>
+    </div>
+            
+    </nav>
+
+
+    <!-- MAIN -->
+    <div class="container">
+
+        <div class="heading">
+            <h1>Secure Your Health Today</h1>
+            <p>Complete the application below to get started with your selected insurance plan.</p>
+        </div>
+
+
+        <div class="content">
+
+            <!-- PLAN DETAILS -->
+            <div class="plan-section">
+
+                <h2>{{ plan.name }}</h2>
+
+                <div class="plan-type">
+                    {{ plan.plan_type }}
+                </div>
+
+                <div class="plan-info">
+                    <span>Age Group</span>
+                    <strong>{{ plan.age_group }}</strong>
+                </div>
+
+                <div class="plan-info">
+                    <span>Premium</span>
+                    <strong>₹{{ plan.premium }}</strong>
+                </div>
+
+                <div class="plan-info">
+                    <span>Coverage</span>
+                    <strong>₹{{ plan.coverage }}</strong>
+                </div>
+
+                <div class="description">
+                    {{ plan.description }}
+                </div>
+
+            </div>
+
+
+            <!-- APPLICATION FORM -->
+            <div class="form-section">
+
+                <h2>Applicant Details</h2>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {% for field in form %}
+
+                        <div class="form-group">
+
+                            <label>{{ field.label }}</label>
+
+                            {{ field }}
+
+                            {% if field.errors %}
+                                <div class="error">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    {% endfor %}
+
+                    <button type="submit" class="submit-btn">
+                        Submit Application
+                    </button>
+
+                </form>
+
+                <div class="secure">
+                    🔒 Your information is securely handled by MediCare Insurance.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

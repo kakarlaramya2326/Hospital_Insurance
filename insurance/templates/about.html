@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MediCare Insurance</title>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4fbfa;
+        color: #333;
+    }
+
+    nav {
+        background: #008c83;
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 25px;
+        font-weight: 500;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 70px 20px 40px;
+    }
+
+    .hero h1 {
+        color: #008c83;
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        max-width: 750px;
+        margin: auto;
+        color: #666;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .content {
+        width: 85%;
+        max-width: 1100px;
+        margin: 20px auto 70px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        padding: 35px 25px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .card h2 {
+        color: #008c83;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        line-height: 1.6;
+        color: #666;
+    }
+
+    .mission {
+        width: 85%;
+        max-width: 1000px;
+        margin: 0 auto 70px;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .mission h2 {
+        color: #008c83;
+        margin-bottom: 15px;
+        font-size: 30px;
+    }
+
+    .mission p {
+        color: #666;
+        line-height: 1.8;
+        font-size: 17px;
+    }
+
+    footer {
+        background: #006f68;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        nav a {
+            margin: 0 8px;
+        }
+
+        .content {
+            grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+    }
+</style>
+
+
+</head>
+
+<body>
+
+
+<nav>
+    <div class="logo">🏥 MediCare Insurance</div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/plans/">Plans</a>
+        <a href="/about/">About Us</a>
+        <a href="/contact/">Contact Us</a>
+        <a href="/admin/">Admin</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>About MediCare Insurance</h1>
+    <p>
+        MediCare Insurance is designed to provide reliable health insurance
+        solutions for individuals, children, and families with simple plans
+        and an easy application process.
+    </p>
+</section>
+
+<section class="content">
+
+    <div class="card">
+        <div class="icon">🛡️</div>
+        <h2>Our Purpose</h2>
+        <p>
+            We aim to make health insurance easier to understand and
+            accessible to people with different healthcare needs.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">❤️</div>
+        <h2>Family Protection</h2>
+        <p>
+            Our plans are structured to support children, adults, and
+            families with different coverage requirements.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="icon">⚡</div>
+        <h2>Simple Process</h2>
+        <p>
+            Users can explore plans, select their preferred policy,
+            submit an application, and receive confirmation easily.
+        </p>
+    </div>
+
+</section>
+
+<section class="mission">
+    <h2>Our Mission</h2>
+    <p>
+        Our mission is to create a simple and user-friendly digital
+        insurance platform where customers can explore healthcare plans,
+        understand coverage details, and submit applications conveniently.
+    </p>
+</section>
+
+<footer>
+    © 2026 MediCare Insurance. All Rights Reserved.
+</footer>
+
+
+</body>
+</html>
+

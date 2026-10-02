@@ -1,0 +1,130 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Application Submitted | MediCare</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ecfeff, #f0fdfa, #ffffff);
+        }
+
+        .success-card {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(15, 118, 110, 0.15);
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: #ccfbf1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        h1 {
+            color: #115e59;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .home {
+            background: #0f766e;
+            color: white;
+        }
+
+        .plans {
+            background: #ccfbf1;
+            color: #115e59;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 500px) {
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-card">
+
+        <div class="icon">
+            ✓
+        </div>
+
+        <h1>Application Submitted!</h1>
+
+        <p>
+            Thank you for choosing MediCare Insurance.
+            Your insurance application has been successfully submitted.
+            Our team will review your application and contact you shortly.
+        </p>
+
+        <div class="buttons">
+
+            <a href="/" class="home">
+                Back to Home
+            </a>
+
+            <a href="/plans/" class="plans">
+                View Plans
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+```

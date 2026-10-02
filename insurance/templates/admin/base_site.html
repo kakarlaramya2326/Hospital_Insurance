@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+{% block branding %}
+<div style="display:flex; align-items:center; gap:20px;">
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            MediCare Insurance Administration
+        </a>
+    </h1>
+
+    <a href="{% url 'home' %}"
+       style="background:#008c83;
+              color:white;
+              padding:8px 15px;
+              border-radius:6px;
+              text-decoration:none;
+              font-size:14px;">
+        ← Back to Website
+    </a>
+</div>
+{% endblock %}

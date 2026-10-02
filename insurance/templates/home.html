@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediCare Insurance</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8fb;
+            color: #1e293b;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #0f766e;
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #ccfbf1;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 8%;
+            background: linear-gradient(
+                135deg,
+                #ecfdf5,
+                #f0fdfa
+            );
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: #0f766e;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: #134e4a;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #0f766e;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: #115e59;
+        }
+
+        .btn-outline {
+            background: white;
+            color: #0f766e;
+            border: 2px solid #0f766e;
+        }
+
+        /* HERO CARD */
+        .hero-card {
+            width: 350px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .hero-card h2 {
+            color: #0f766e;
+            margin-bottom: 12px;
+        }
+
+        .hero-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            color: #0f766e;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .feature-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #0f766e;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #134e4a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            🏥 MediCare Insurance
+        </div>
+
+        <ul class="nav-links">
+
+            <ul class="nav-links">
+
+    <li>
+        <a href="/">Home</a>
+    </li>
+
+    <li>
+        <a href="/plans/">Plans</a>
+    </li>
+
+    <li>
+        <a href="/about/">About Us</a>
+    </li>
+
+    <li>
+        <a href="/contact/">Contact Us</a>
+    </li>
+
+    {% if user.is_authenticated %}
+
+        <li>
+            <a href="/profile/">Profile</a>
+        </li>
+
+        <li>
+            <a href="/logout/">Logout</a>
+        </li>
+
+    {% else %}
+
+        <li>
+            <a href="/login/">Login</a>
+        </li>
+
+        <li>
+            <a href="/signup/">Sign Up</a>
+        </li>
+
+    {% endif %}
+
+</ul>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Protect Your Health,
+                <span>Protect Your Future</span>
+            </h1>
+
+            <p>
+                Get reliable and affordable health insurance plans
+                designed to protect you and your family from unexpected
+                medical expenses.
+            </p>
+
+            <a href="/plans/" class="btn">
+                Explore Plans
+            </a>
+
+            <a href="/about/" class="btn btn-outline">
+                Learn More
+            </a>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-icon">
+                🏥
+            </div>
+
+            <h2>
+                Your Health Matters
+            </h2>
+
+            <p>
+                Choose the right insurance plan and enjoy
+                better financial protection for your healthcare needs.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <h2>
+            Why Choose MediCare?
+        </h2>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Financial Protection
+                </h3>
+
+                <p>
+                    Reduce the financial burden of unexpected
+                    medical and hospital expenses.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Family Coverage
+                </h3>
+
+                <p>
+                    Choose plans designed to provide healthcare
+                    protection for you and your family.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📋
+                </div>
+
+                <h3>
+                    Easy Application
+                </h3>
+
+                <p>
+                    Apply for an insurance plan through a simple
+                    and convenient online application process.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 MediCare Insurance. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

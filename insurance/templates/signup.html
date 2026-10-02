@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - MediCare Insurance</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4fbfa;
+    }
+
+    nav {
+        background: #008c83;
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+    .container {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    .card {
+        width: 420px;
+        max-width: 100%;
+        background: white;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    }
+
+    h1 {
+        text-align: center;
+        color: #008c83;
+        margin-bottom: 25px;
+    }
+
+    form p {
+        margin-bottom: 18px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 13px;
+        border: none;
+        border-radius: 8px;
+        background: #008c83;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #006f68;
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #666;
+    }
+
+    .login-link a {
+        color: #008c83;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer {
+        background: #006f68;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🏥 MediCare Insurance</div>
+
+
+<div>
+    <a href="/">Home</a>
+    <a href="/plans/">Plans</a>
+    <a href="/about/">About Us</a>
+    <a href="/contact/">Contact Us</a>
+</div>
+
+
+</nav>
+
+<div class="container">
+    <div class="card">
+
+
+    <h1>Create Account</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="/login/">Login</a>
+    </div>
+
+</div>
+
+
+</div>
+
+<footer>
+    © 2026 MediCare Insurance. All Rights Reserved.
+</footer>
+
+</body>
+</html>

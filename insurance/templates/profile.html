@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MediCare Insurance</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4fbfa;
+        color: #333;
+    }
+
+    nav {
+        background: #008c83;
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 22px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 60px auto;
+    }
+
+    .profile-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+        text-align: center;
+        color: #008c83;
+        margin-bottom: 30px;
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .box {
+        padding: 20px;
+        background: #f4fbfa;
+        border-radius: 12px;
+    }
+
+    .box strong {
+        display: block;
+        color: #008c83;
+        margin-bottom: 8px;
+    }
+
+    .applications-title {
+        color: #008c83;
+        margin-bottom: 20px;
+    }
+
+    .application-box {
+        padding: 22px;
+        background: #f4fbfa;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+
+    .status {
+        display: inline-block;
+        padding: 7px 14px;
+        border-radius: 20px;
+        background: #ccfbf1;
+        color: #115e59;
+        font-weight: bold;
+    }
+
+    .message {
+        margin-top: 25px;
+        padding: 20px;
+        background: #e8f8f7;
+        border-radius: 12px;
+        line-height: 1.6;
+    }
+
+    .no-applications {
+        padding: 25px;
+        background: #f4fbfa;
+        border-radius: 12px;
+        color: #777;
+        margin-bottom: 25px;
+    }
+
+    footer {
+        margin-top: 80px;
+        background: #006f68;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+        nav {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        nav a {
+            margin: 0 8px;
+        }
+
+        .info {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+
+<div class="logo">🏥 MediCare Insurance</div>
+
+<div>
+    <a href="/">Home</a>
+    <a href="/plans/">Plans</a>
+    <a href="/about/">About Us</a>
+    <a href="/contact/">Contact Us</a>
+    <a href="/profile/">Profile</a>
+    <a href="/logout/">Logout</a>
+</div>
+
+
+</nav>
+
+<div class="container">
+
+<div class="profile-card">
+
+
+<h1>My Profile</h1>
+
+<div class="info">
+
+    <div class="box">
+        <strong>👤 Username</strong>
+        {{ request.user.username }}
+    </div>
+
+    <div class="box">
+        <strong>📧 Email</strong>
+        {{ request.user.email }}
+    </div>
+
+    <div class="box">
+        <strong>🛡️ Insurance Applications</strong>
+        {{ applications|length }}
+    </div>
+
+    <div class="box">
+        <strong>✅ Account Status</strong>
+        Logged In
+    </div>
+
+</div>
+
+<h2 class="applications-title">
+    My Insurance Applications
+</h2>
+
+{% for application in applications %}
+
+    <div class="application-box">
+
+        <strong>📋 Applicant Name</strong>
+        {{ application.full_name }}
+
+        <strong style="margin-top: 12px;">🛡️ Insurance Plan</strong>
+        {{ application.plan.name }}
+
+        <strong style="margin-top: 12px;">💰 Premium</strong>
+        ₹{{ application.plan.premium }}
+
+        <strong style="margin-top: 12px;">💵 Coverage</strong>
+        ₹{{ application.plan.coverage }}
+
+        <strong style="margin-top: 12px;">📱 Phone</strong>
+        {{ application.phone }}
+
+        <strong style="margin-top: 12px;">🎂 Date of Birth</strong>
+        {{ application.date_of_birth|date:"d M Y" }}
+
+        <strong style="margin-top: 12px;">📍 Address</strong>
+        {{ application.address }}
+
+        <strong style="margin-top: 12px;">📌 Application Status</strong>
+        <span class="status">
+            {{ application.status }}
+        </span>
+
+        <strong style="margin-top: 12px;">📅 Applied On</strong>
+        {{ application.applied_on|date:"d M Y, h:i A" }}
+
+    </div>
+
+{% empty %}
+
+    <div class="no-applications">
+        You have not submitted any insurance applications yet.
+    </div>
+
+{% endfor %}
+
+<div class="message">
+    Your insurance applications and their current status are shown here.
+    You can check your application details anytime from your profile.
+</div>
+
+</div>
+
+</div>
+
+<footer>
+    &copy; 2026 MediCare Insurance. All Rights Reserved.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Insurance Plans | MediCare</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ecfeff, #f0fdfa, #ffffff);
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #0f766e;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ccfbf1;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .header h1 {
+            color: #115e59;
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 16px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* PLANS */
+        .plans {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 12px 35px rgba(15, 118, 110, 0.12);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #0f766e;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(15, 118, 110, 0.20);
+        }
+
+        .card h2 {
+            color: #115e59;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .type {
+            display: inline-block;
+            background: #ccfbf1;
+            color: #115e59;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+            color: #0f766e;
+            margin-bottom: 8px;
+        }
+
+        .price-label {
+            color: #64748b;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 18px;
+        }
+
+        .detail {
+            margin-bottom: 15px;
+        }
+
+        .detail span {
+            display: block;
+            color: #64748b;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .detail strong {
+            color: #334155;
+            font-size: 14px;
+        }
+
+        .description {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 18px 0;
+            min-height: 62px;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #0f766e;
+            color: white;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #115e59;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(15, 118, 110, 0.25);
+        }
+
+        /* EMPTY */
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(15, 118, 110, 0.12);
+        }
+
+        .empty h2 {
+            color: #115e59;
+            margin-bottom: 10px;
+        }
+
+        .empty p {
+            color: #64748b;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #115e59;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 950px) {
+            .plans {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .plans {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            🏥 MediCare Insurance
+        </div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/plans/">Plans</a>
+            <a href="/about">About Us</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+    <section class="header">
+
+        <h1>Choose Your Health Plan</h1>
+
+        <p>
+            Explore our flexible insurance plans designed to provide
+            reliable healthcare protection for children, juniors and adults.
+        </p>
+
+    </section>
+
+
+    <!-- PLANS -->
+    <section class="plans">
+
+        {% for plan in plans %}
+
+        <div class="card">
+
+            <h2>{{ plan.name }}</h2>
+
+            <div class="type">
+                {{ plan.plan_type }}
+            </div>
+
+            <div class="price">
+                ₹{{ plan.premium }}
+            </div>
+
+            <div class="price-label">
+                Premium
+            </div>
+
+
+            <div class="details">
+
+                <div class="detail">
+                    <span>Age Group</span>
+                    <strong>{{ plan.age_group }}</strong>
+                </div>
+
+                <div class="detail">
+                    <span>Coverage</span>
+                    <strong>₹{{ plan.coverage }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="description">
+                {{ plan.description }}
+            </div>
+
+
+            <a href="{% url 'apply_insurance' plan.id %}" class="btn">
+                Apply Now →
+            </a>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty">
+
+            <h2>No Plans Available</h2>
+
+            <p>
+                Insurance plans will be available soon.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 MediCare Insurance |
+        Protect Your Health, Protect Your Future
+
+    </footer>
+
+</body>
+
+</html>
+
