@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -92,7 +94,10 @@ DATABASES = {
     }
 }
 
-
+if os.environ.get('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(
+        conn_max_age=600
+    )
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
 
@@ -128,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email
@@ -143,3 +149,11 @@ LOGIN_REDIRECT_URL = '/profile/'
 LOGOUT_REDIRECT_URL = '/'
 
 CSRF_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = os.environ.get("RENDER") == "true"
+SESSION_COOKIE_SECURE = os.environ.get("RENDER") == "true"
+CSRF_COOKIE_SECURE = os.environ.get("RENDER") == "true"
+
+SECURE_HSTS_SECONDS = 31536000 if os.environ.get("RENDER") == "true" else 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get("RENDER") == "true"
+SECURE_HSTS_PRELOAD = os.environ.get("RENDER") == "true"
